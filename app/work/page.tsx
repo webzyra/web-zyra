@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
-import { CONCEPTS, IMAGES } from "@/lib/data";
+import ConceptArt from "@/components/ConceptArt";
+import { CONCEPTS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Website Concepts",
@@ -16,8 +17,7 @@ export default function WorkPage() {
         eyebrow="Website concepts"
         title="A sense of what Webzyra builds."
         subtitle="These are illustrative concept layouts, clearly labeled as such — not real client projects. They're a reference point for the kind of structure and quality Webzyra designs toward."
-        image={IMAGES.workBanner}
-        imageAlt="A designer working on a laptop"
+        variant="work"
       />
 
       <section className="section">
@@ -25,13 +25,7 @@ export default function WorkPage() {
           {CONCEPTS.map((c) => (
             <div key={c.title} className="card overflow-hidden">
               <div className="aspect-[16/10] relative">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={c.image}
-                  alt={`${c.title} concept layout`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+                <ConceptArt variant={c.variant} />
                 <span className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-wide bg-ink/80 text-white px-2.5 py-1 rounded-sm backdrop-blur-sm">
                   {c.tag}
                 </span>
