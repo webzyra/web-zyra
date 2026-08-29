@@ -158,7 +158,7 @@ export const FAQS = [
   },
   {
     q: "Can I request custom features?",
-    a: "Yes. Custom requirements are discussed directly after you choose a plan, and are scoped and quoted based on what you need.",
+    a: "Yes! Custom requirements are discussed directly after you choose a plan, and are scoped and quoted based on what you need.",
   },
   {
     q: "How do I contact Webzyra after selecting a plan?",
