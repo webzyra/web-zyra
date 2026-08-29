@@ -4,24 +4,6 @@ export const CONTACT = {
   email: "ghazanfaranees00@gmail.com",
 };
 
-// Centralized stock photography (Unsplash, free-to-use). Swap any of these
-// for your own photography later by changing the URL in one place.
-const unsplash = (id: string, params = "q=80&w=1800&auto=format&fit=crop") =>
-  `https://images.unsplash.com/${id}?${params}`;
-
-export const IMAGES = {
-  hero: unsplash("photo-1634084462412-b54873c0a56d"), // a computer screen — "the modern way to build for the web"
-  teamBanner: unsplash("photo-1635405074683-96d6921a2a68"), // person building a website on a laptop
-  servicesBanner: unsplash("photo-1559028012-481c04fa702d"), // clean monitor displaying a website
-  infoBanner: unsplash("photo-1648134859211-4a1b57575f4e"), // a web page showing design workflows
-  workBanner: unsplash("photo-1522542550221-31fd19575a2d"), // wireframe sketches of website layouts
-  contactBanner: unsplash("photo-1635405076647-80cfa0f2effe"), // focused work building a website
-  conceptBusiness: unsplash("photo-1642132652935-d750e2014719", "q=80&w=1000&h=760&auto=format&fit=crop"), // website homepage on screen
-  conceptPortfolio: unsplash("photo-1629752187687-3d3c7ea3a21b", "q=80&w=1000&h=760&auto=format&fit=crop"), // hand-drawn layout sketch
-  conceptEcommerce: unsplash("photo-1648134859186-a05fb609f41e", "q=80&w=1000&h=760&auto=format&fit=crop"), // ecommerce-style web page
-  conceptLanding: unsplash("photo-1648134859175-78b41b4db186", "q=80&w=1000&h=760&auto=format&fit=crop"), // landing page on screen
-};
-
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
@@ -145,7 +127,7 @@ export const FAQS = [
   },
   {
     q: "Can I request custom features?",
-    a: "Yes! Custom requirements are discussed directly after you choose a plan, and are scoped and quoted based on what you need.",
+    a: "Yes. Custom requirements are discussed directly after you choose a plan, and are scoped and quoted based on what you need.",
   },
   {
     q: "How do I contact Webzyra after selecting a plan?",
@@ -185,8 +167,8 @@ export const PROCESS_STEPS = [
 ];
 
 export const CONCEPTS = [
-  { title: "Business Website", tag: "Concept", desc: "A multi-section company site — services, credibility, and a clear path to contact.", image: IMAGES.conceptBusiness },
-  { title: "Portfolio", tag: "Concept", desc: "A focused, image-led layout that puts the work in front first.", image: IMAGES.conceptPortfolio },
-  { title: "Ecommerce", tag: "Concept", desc: "A product-first store layout — browse, product detail, cart, checkout.", image: IMAGES.conceptEcommerce },
-  { title: "Landing Page", tag: "Concept", desc: "A single-purpose page built around one action.", image: IMAGES.conceptLanding },
+  { title: "Business Website", tag: "Concept", desc: "A multi-section company site — services, credibility, and a clear path to contact.", variant: "business" as const },
+  { title: "Portfolio", tag: "Concept", desc: "A focused, image-led layout that puts the work in front first.", variant: "portfolio" as const },
+  { title: "Ecommerce", tag: "Concept", desc: "A product-first store layout — browse, product detail, cart, checkout.", variant: "ecommerce" as const },
+  { title: "Landing Page", tag: "Concept", desc: "A single-purpose page built around one action.", variant: "landing" as const },
 ];
