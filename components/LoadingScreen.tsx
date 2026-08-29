@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function LoadingScreen() {
   const [phase, setPhase] = useState<"loading" | "leaving" | "done">("loading");
@@ -16,11 +17,11 @@ export default function LoadingScreen() {
     }
 
     document.body.style.overflow = "hidden";
-    const leaveTimer = setTimeout(() => setPhase("leaving"), 1200);
+    const leaveTimer = setTimeout(() => setPhase("leaving"), 1650);
     const doneTimer = setTimeout(() => {
       setPhase("done");
       document.body.style.overflow = "";
-    }, 1650);
+    }, 2150);
 
     return () => {
       clearTimeout(leaveTimer);
@@ -34,41 +35,36 @@ export default function LoadingScreen() {
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 z-[999] flex items-center justify-center bg-ink transition-opacity duration-[450ms] ease-out ${
+      className={`fixed inset-0 z-[999] flex items-center justify-center bg-paper transition-opacity duration-500 ease-out ${
         phase === "leaving" ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <div className="flex flex-col items-center gap-5">
-        <div className="relative w-[72px] h-[72px]">
-          <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-            <circle
-              cx="50"
-              cy="50"
-              r="42"
-              fill="none"
-              stroke="rgba(255,255,255,0.12)"
-              strokeWidth="3"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="42"
-              fill="none"
-              stroke="#2451FF"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeDasharray="264"
-              strokeDashoffset="264"
-              className="loader-ring"
-            />
-          </svg>
-          <span className="absolute inset-0 flex items-center justify-center font-display font-semibold text-white text-xl">
-            W
-          </span>
+      {/* faint blueprint grid backdrop — on-brand, restrained */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            "linear-gradient(#0A0C10 1px, transparent 1px), linear-gradient(90deg, #0A0C10 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <div className="relative flex flex-col items-center">
+        <div className="loader-logo-mask">
+          <Image
+            src="/logo.png"
+            alt="Webzyra"
+            width={280}
+            height={94}
+            priority
+            className="h-10 md:h-12 w-auto"
+          />
         </div>
-        <p className="loader-pulse font-mono text-[11px] uppercase tracking-[0.3em] text-white/60">
-          Webzyra
-        </p>
+
+        <div className="mt-7 w-40 h-[3px] bg-line rounded-full overflow-hidden">
+          <div className="h-full bg-blue rounded-full loader-bar" />
+        </div>
       </div>
     </div>
   );

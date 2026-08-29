@@ -58,7 +58,7 @@ export default function TermsPage() {
   return (
     <section className="section-inner !pt-16 md:!pt-20 max-w-3xl">
       <p className="eyebrow mb-4">Terms of Service</p>
-      <h1 className="text-4xl md:text-5xl font-display font-semibold">Terms of Service</h1>
+      <h1 className="text-4xl md:text-5xl font-display font-bold">Terms of Service</h1>
       <p className="mt-5 text-muted leading-relaxed">
         These are general business terms for projects undertaken by Webzyra.
         They are provided for clarity and may be reviewed or updated as the

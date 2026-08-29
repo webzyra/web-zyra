@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="max-w-content mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-20 md:pb-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
           <div className="animate-fadeUp">
             <p className="eyebrow mb-6">Website design &amp; development</p>
-            <h1 className="text-[42px] leading-[1.05] sm:text-5xl md:text-[58px] font-display font-semibold tracking-tight text-balance">
+            <h1 className="text-[42px] leading-[1.05] sm:text-5xl md:text-[58px] font-display font-bold tracking-tight text-balance">
               Professional websites,
               <br />
               built for your business.

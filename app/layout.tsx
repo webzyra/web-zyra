@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Sora, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
-const display = Space_Grotesk({
+const display = Sora({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const body = Plus_Jakarta_Sans({
+const body = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",

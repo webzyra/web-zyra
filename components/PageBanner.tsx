@@ -35,7 +35,7 @@ export default function PageBanner({
         }`}
       >
         {eyebrow && <p className="eyebrow-light mb-5">{eyebrow}</p>}
-        <h1 className="text-4xl md:text-5xl lg:text-[52px] font-display font-semibold max-w-2xl text-balance leading-[1.08]">
+        <h1 className="text-4xl md:text-5xl lg:text-[52px] font-display font-bold max-w-2xl text-balance leading-[1.08]">
           {title}
         </h1>
         {subtitle && (

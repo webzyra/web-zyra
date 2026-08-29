@@ -10,16 +10,16 @@ const unsplash = (id: string, params = "q=80&w=1800&auto=format&fit=crop") =>
   `https://images.unsplash.com/${id}?${params}`;
 
 export const IMAGES = {
-  hero: unsplash("photo-1498050108023-c5249f4df085"), // code on a laptop, busy desk
-  teamBanner: unsplash("photo-1666698809123-44e998e93f23"), // team working together on laptops
-  servicesBanner: unsplash("photo-1688733720228-4f7a18681c4f"), // clean desk, laptop + monitor
-  infoBanner: unsplash("photo-1651684195895-38708dc94cfa"), // focused work on a laptop
-  workBanner: unsplash("photo-1621857093087-7daa85ab14a6"), // designer working on a MacBook
-  contactBanner: unsplash("photo-1624555130858-7ea5b8192c49"), // people in conversation, business setting
-  conceptBusiness: unsplash("photo-1688733720228-4f7a18681c4f", "q=80&w=1000&h=760&auto=format&fit=crop"),
-  conceptPortfolio: unsplash("photo-1651684195895-38708dc94cfa", "q=80&w=1000&h=760&auto=format&fit=crop"),
-  conceptEcommerce: unsplash("photo-1621857093087-7daa85ab14a6", "q=80&w=1000&h=760&auto=format&fit=crop"),
-  conceptLanding: unsplash("photo-1569534108101-c29c57e3df89", "q=80&w=1000&h=760&auto=format&fit=crop"),
+  hero: unsplash("photo-1634084462412-b54873c0a56d"), // a computer screen — "the modern way to build for the web"
+  teamBanner: unsplash("photo-1635405074683-96d6921a2a68"), // person building a website on a laptop
+  servicesBanner: unsplash("photo-1559028012-481c04fa702d"), // clean monitor displaying a website
+  infoBanner: unsplash("photo-1648134859211-4a1b57575f4e"), // a web page showing design workflows
+  workBanner: unsplash("photo-1522542550221-31fd19575a2d"), // wireframe sketches of website layouts
+  contactBanner: unsplash("photo-1635405076647-80cfa0f2effe"), // focused work building a website
+  conceptBusiness: unsplash("photo-1642132652935-d750e2014719", "q=80&w=1000&h=760&auto=format&fit=crop"), // website homepage on screen
+  conceptPortfolio: unsplash("photo-1629752187687-3d3c7ea3a21b", "q=80&w=1000&h=760&auto=format&fit=crop"), // hand-drawn layout sketch
+  conceptEcommerce: unsplash("photo-1648134859186-a05fb609f41e", "q=80&w=1000&h=760&auto=format&fit=crop"), // ecommerce-style web page
+  conceptLanding: unsplash("photo-1648134859175-78b41b4db186", "q=80&w=1000&h=760&auto=format&fit=crop"), // landing page on screen
 };
 
 export const NAV_LINKS = [

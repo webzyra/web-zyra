@@ -50,7 +50,7 @@ export default function PrivacyPage() {
   return (
     <section className="section-inner !pt-16 md:!pt-20 max-w-3xl">
       <p className="eyebrow mb-4">Privacy Policy</p>
-      <h1 className="text-4xl md:text-5xl font-display font-semibold">Privacy Policy</h1>
+      <h1 className="text-4xl md:text-5xl font-display font-bold">Privacy Policy</h1>
       <p className="mt-5 text-muted leading-relaxed">
         This policy explains what information is collected through
         webzyra.xyz and how it's used. It covers this website only.
