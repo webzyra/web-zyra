@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { SERVICES, WHY_WEBZYRA, PROCESS_STEPS, IMAGES } from "@/lib/data";
+import BannerArt from "@/components/BannerArt";
+import { SERVICES, WHY_WEBZYRA, PROCESS_STEPS } from "@/lib/data";
 
 const FEATURED_SERVICES = SERVICES.slice(0, 3);
 
@@ -40,15 +41,8 @@ export default function HomePage() {
           </div>
 
           <div className="relative animate-fadeIn">
-            <div className="relative rounded-lg overflow-hidden border border-line shadow-[0_20px_60px_-20px_rgba(10,12,16,0.35)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={IMAGES.hero}
-                alt="Code on a laptop screen — professional website development"
-                className="w-full h-[420px] md:h-[480px] object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+            <div className="relative rounded-lg overflow-hidden border border-line shadow-[0_20px_60px_-20px_rgba(10,12,16,0.35)] h-[420px] md:h-[480px]">
+              <BannerArt variant="home" />
             </div>
 
             <div className="absolute -bottom-6 -left-6 hidden sm:block bg-white border border-line rounded-md shadow-[0_12px_30px_-8px_rgba(10,12,16,0.2)] px-6 py-4">
@@ -87,14 +81,7 @@ export default function HomePage() {
       {/* BANNER */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={IMAGES.teamBanner}
-            alt="A team collaborating on a website project"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 banner-scrim-blue" />
+          <BannerArt variant="work" />
         </div>
         <div className="relative max-w-content mx-auto px-6 md:px-10 py-24 md:py-32 text-white text-center flex flex-col items-center">
           <p className="eyebrow-light mb-5">webzyra.xyz</p>
