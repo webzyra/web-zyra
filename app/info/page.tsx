@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
-import { WHY_WEBZYRA, PROCESS_STEPS, IMAGES } from "@/lib/data";
+import { WHY_WEBZYRA, PROCESS_STEPS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Info",
@@ -17,8 +17,7 @@ export default function InfoPage() {
         eyebrow="How Webzyra works"
         title="How Webzyra approaches a website."
         subtitle="Webzyra designs and develops websites for businesses, brands, individuals, and online stores — built around what each project actually needs, not a fixed template."
-        image={IMAGES.infoBanner}
-        imageAlt="Focused work on a laptop, planning a website project"
+        variant="info"
       />
 
       <section className="section">
