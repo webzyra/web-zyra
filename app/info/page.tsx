@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { WHY_WEBZYRA, PROCESS_STEPS } from "@/lib/data";
+import PageBanner from "@/components/PageBanner";
+import { WHY_WEBZYRA, PROCESS_STEPS, IMAGES } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Info",
@@ -12,17 +13,13 @@ export const metadata: Metadata = {
 export default function InfoPage() {
   return (
     <>
-      <section className="section-inner !pt-16 md:!pt-20 !pb-14">
-        <p className="eyebrow mb-4">Info</p>
-        <h1 className="text-4xl md:text-5xl font-display font-semibold max-w-2xl">
-          How Webzyra approaches a website.
-        </h1>
-        <p className="mt-5 text-muted text-lg max-w-xl leading-relaxed">
-          Webzyra designs and develops websites for businesses, brands,
-          individuals, and online stores — built around what each project
-          actually needs, not a fixed template.
-        </p>
-      </section>
+      <PageBanner
+        eyebrow="How Webzyra works"
+        title="How Webzyra approaches a website."
+        subtitle="Webzyra designs and develops websites for businesses, brands, individuals, and online stores — built around what each project actually needs, not a fixed template."
+        image={IMAGES.infoBanner}
+        imageAlt="Focused work on a laptop, planning a website project"
+      />
 
       <section className="section">
         <div className="section-inner grid md:grid-cols-2 gap-12">

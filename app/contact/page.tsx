@@ -3,7 +3,8 @@ import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import EmailButton from "@/components/EmailButton";
 import FAQ from "@/components/FAQ";
-import { CONTACT } from "@/lib/data";
+import PageBanner from "@/components/PageBanner";
+import { CONTACT, IMAGES } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -15,16 +16,14 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="section-inner !pt-16 md:!pt-20 !pb-14">
-        <p className="eyebrow mb-4">Contact</p>
-        <h1 className="text-4xl md:text-5xl font-display font-semibold max-w-2xl">
-          Let's talk about your website.
-        </h1>
-        <p className="mt-5 text-muted text-lg max-w-xl leading-relaxed">
-          Send a message below, or reach out directly over WhatsApp or email —
-          whichever is easier for you.
-        </p>
-      </section>
+      <PageBanner
+        eyebrow="Get in touch"
+        title="Let's talk about your website."
+        subtitle="Send a message below, or reach out directly over WhatsApp or email — whichever is easier for you."
+        image={IMAGES.contactBanner}
+        imageAlt="A conversation in a professional setting"
+        compact
+      />
 
       <section className="section">
         <div className="section-inner grid lg:grid-cols-[1fr_0.75fr] gap-14">

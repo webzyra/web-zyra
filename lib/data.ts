@@ -4,6 +4,24 @@ export const CONTACT = {
   email: "ghazanfaranees00@gmail.com",
 };
 
+// Centralized stock photography (Unsplash, free-to-use). Swap any of these
+// for your own photography later by changing the URL in one place.
+const unsplash = (id: string, params = "q=80&w=1800&auto=format&fit=crop") =>
+  `https://images.unsplash.com/${id}?${params}`;
+
+export const IMAGES = {
+  hero: unsplash("photo-1498050108023-c5249f4df085"), // code on a laptop, busy desk
+  teamBanner: unsplash("photo-1666698809123-44e998e93f23"), // team working together on laptops
+  servicesBanner: unsplash("photo-1688733720228-4f7a18681c4f"), // clean desk, laptop + monitor
+  infoBanner: unsplash("photo-1651684195895-38708dc94cfa"), // focused work on a laptop
+  workBanner: unsplash("photo-1621857093087-7daa85ab14a6"), // designer working on a MacBook
+  contactBanner: unsplash("photo-1624555130858-7ea5b8192c49"), // people in conversation, business setting
+  conceptBusiness: unsplash("photo-1688733720228-4f7a18681c4f", "q=80&w=1000&h=760&auto=format&fit=crop"),
+  conceptPortfolio: unsplash("photo-1651684195895-38708dc94cfa", "q=80&w=1000&h=760&auto=format&fit=crop"),
+  conceptEcommerce: unsplash("photo-1621857093087-7daa85ab14a6", "q=80&w=1000&h=760&auto=format&fit=crop"),
+  conceptLanding: unsplash("photo-1569534108101-c29c57e3df89", "q=80&w=1000&h=760&auto=format&fit=crop"),
+};
+
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
@@ -167,8 +185,8 @@ export const PROCESS_STEPS = [
 ];
 
 export const CONCEPTS = [
-  { title: "Business Website", tag: "Concept", desc: "A multi-section company site — services, credibility, and a clear path to contact." },
-  { title: "Portfolio", tag: "Concept", desc: "A focused, image-led layout that puts the work in front first." },
-  { title: "Ecommerce", tag: "Concept", desc: "A product-first store layout — browse, product detail, cart, checkout." },
-  { title: "Landing Page", tag: "Concept", desc: "A single-purpose page built around one action." },
+  { title: "Business Website", tag: "Concept", desc: "A multi-section company site — services, credibility, and a clear path to contact.", image: IMAGES.conceptBusiness },
+  { title: "Portfolio", tag: "Concept", desc: "A focused, image-led layout that puts the work in front first.", image: IMAGES.conceptPortfolio },
+  { title: "Ecommerce", tag: "Concept", desc: "A product-first store layout — browse, product detail, cart, checkout.", image: IMAGES.conceptEcommerce },
+  { title: "Landing Page", tag: "Concept", desc: "A single-purpose page built around one action.", image: IMAGES.conceptLanding },
 ];

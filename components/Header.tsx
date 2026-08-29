@@ -28,8 +28,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-paper/90 backdrop-blur border-b border-line" : "bg-paper/0 border-b border-transparent"
+      className={`sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_1px_0_rgba(10,12,16,0.06)]" : ""
       }`}
     >
       <div className="max-w-content mx-auto px-6 md:px-10 h-16 md:h-[72px] flex items-center justify-between">

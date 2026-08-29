@@ -8,16 +8,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0B0D12",
-        paper: "#FAFAF9",
+        ink: "#0A0C10",
+        ink2: "#12151D",
+        paper: "#FBFBF9",
         blue: {
-          DEFAULT: "#1E42FF",
-          dark: "#132CB8",
-          light: "#4E6BFF",
+          DEFAULT: "#2451FF",
+          dark: "#1633B0",
+          light: "#6C86FF",
         },
-        line: "#E4E4E1",
+        line: "#E2E4EA",
         muted: "#5B6272",
-        surface: "#F3F3F1",
+        surface: "#F2F3F7",
+        "surface-blue": "#EEF1FF",
         ok: "#1F9D55",
         err: "#D64545",
       },
@@ -32,8 +34,8 @@ const config: Config = {
       borderRadius: {
         sm: "4px",
         DEFAULT: "6px",
-        md: "8px",
-        lg: "12px",
+        md: "10px",
+        lg: "16px",
       },
       keyframes: {
         fadeUp: {

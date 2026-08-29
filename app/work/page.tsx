@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CONCEPTS } from "@/lib/data";
+import PageBanner from "@/components/PageBanner";
+import { CONCEPTS, IMAGES } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Website Concepts",
@@ -11,38 +12,42 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <section className="section-inner !pt-16 md:!pt-20 !pb-14">
-        <p className="eyebrow mb-4">Website concepts</p>
-        <h1 className="text-4xl md:text-5xl font-display font-semibold max-w-2xl">
-          A sense of what Webzyra builds.
-        </h1>
-        <p className="mt-5 text-muted text-lg max-w-xl leading-relaxed">
-          These are illustrative concept layouts, clearly labeled as such —
-          not real client projects. They're a reference point for the kind of
-          structure and quality Webzyra designs toward.
-        </p>
-      </section>
+      <PageBanner
+        eyebrow="Website concepts"
+        title="A sense of what Webzyra builds."
+        subtitle="These are illustrative concept layouts, clearly labeled as such — not real client projects. They're a reference point for the kind of structure and quality Webzyra designs toward."
+        image={IMAGES.workBanner}
+        imageAlt="A designer working on a laptop"
+      />
 
       <section className="section">
         <div className="section-inner grid sm:grid-cols-2 gap-6">
           {CONCEPTS.map((c) => (
-            <div key={c.title} className="card p-7">
-              <div className="aspect-[16/10] rounded-sm bg-surface border border-line mb-5 flex items-center justify-center">
-                <span className="font-mono text-[12px] text-muted">{c.title} layout</span>
+            <div key={c.title} className="card overflow-hidden">
+              <div className="aspect-[16/10] relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={c.image}
+                  alt={`${c.title} concept layout`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-wide bg-ink/80 text-white px-2.5 py-1 rounded-sm backdrop-blur-sm">
+                  {c.tag}
+                </span>
               </div>
-              <span className="font-mono text-[11px] uppercase tracking-wide text-blue">
-                {c.tag}
-              </span>
-              <h3 className="mt-1 font-display text-lg font-semibold">{c.title}</h3>
-              <p className="mt-2 text-muted text-[14px] leading-relaxed">{c.desc}</p>
+              <div className="p-7">
+                <h3 className="font-display text-lg font-semibold">{c.title}</h3>
+                <p className="mt-2 text-muted text-[14px] leading-relaxed">{c.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="section bg-ink text-white">
+      <section className="section bg-gradient-to-b from-ink to-ink2 text-white">
         <div className="section-inner text-center flex flex-col items-center">
-          <h2 className="text-3xl md:text-[42px] font-display font-semibold max-w-xl">
+          <h2 className="text-3xl md:text-[42px] font-display font-semibold max-w-xl text-balance">
             Want something built for you?
           </h2>
           <Link href="/services" className="btn-blue mt-8">

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -11,9 +12,9 @@ const display = Space_Grotesk({
   display: "swap",
 });
 
-const body = IBM_Plex_Sans({
+const body = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
   display: "swap",
 });
@@ -33,11 +34,6 @@ export const metadata: Metadata = {
   },
   description:
     "Webzyra builds professional, responsive websites and ecommerce experiences for businesses, brands, and individuals.",
-  icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
   openGraph: {
     title: "Webzyra — Professional Website Design & Development",
     description:
@@ -65,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
+        <LoadingScreen />
         <Header />
         <main>{children}</main>
         <Footer />

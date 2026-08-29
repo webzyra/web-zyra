@@ -4,10 +4,12 @@ import { CONTACT, NAV_LINKS } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-ink text-white">
+    <footer className="relative border-t-2 border-blue bg-gradient-to-b from-ink to-ink2 text-white">
       <div className="max-w-content mx-auto px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-12">
         <div>
-          <div className="bg-white/95 rounded-sm px-4 py-3 w-fit">
+          <div
+            className="w-fit [filter:drop-shadow(0_0_1px_rgba(255,255,255,0.55))_drop-shadow(0_0_10px_rgba(255,255,255,0.12))]"
+          >
             <Logo />
           </div>
           <p className="mt-5 text-white/60 max-w-xs text-[15px] leading-relaxed">
@@ -17,7 +19,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="eyebrow !text-white/50 mb-4">Navigate</p>
+          <p className="eyebrow-muted mb-4">Navigate</p>
           <ul className="space-y-3">
             {[...NAV_LINKS, { label: "Terms", href: "/terms" }, { label: "Privacy", href: "/privacy" }].map(
               (l) => (
@@ -32,7 +34,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="eyebrow !text-white/50 mb-4">Contact</p>
+          <p className="eyebrow-muted mb-4">Contact</p>
           <ul className="space-y-3 text-[15px]">
             <li>
               <a
