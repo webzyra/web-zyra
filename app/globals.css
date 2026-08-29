@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+  ::selection {
+    @apply bg-blue text-white;
+  }
+  :focus-visible {
+    outline: 2px solid #1E42FF;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[13px] uppercase tracking-[0.14em] text-blue inline-flex items-center gap-2;
+  }
+  .eyebrow::before {
+    content: "//";
+    @apply text-muted;
+  }
+  .section {
+    @apply border-t border-line;
+  }
+  .section-inner {
+    @apply max-w-content mx-auto px-6 md:px-10 py-20 md:py-28;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-[15px] font-medium transition-all duration-200 whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-white hover:bg-blue;
+  }
+  .btn-blue {
+    @apply btn bg-blue text-white hover:bg-blue-dark;
+  }
+  .btn-outline {
+    @apply btn border border-ink/20 text-ink hover:border-ink;
+  }
+  .btn-ghost {
+    @apply btn text-ink hover:text-blue;
+  }
+  .card {
+    @apply border border-line rounded bg-white/60;
+  }
+  .field-label {
+    @apply block text-[13px] font-mono uppercase tracking-wide text-muted mb-2;
+  }
+  .field-input {
+    @apply w-full rounded-sm border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-muted/70 focus:border-blue transition-colors;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
