@@ -22,19 +22,6 @@ export const IMAGES = {
   conceptLanding: unsplash("photo-1569534108101-c29c57e3df89", "q=80&w=1000&h=760&auto=format&fit=crop"),
 };
 
-  // Ecommerce / online-business style concept
-  conceptEcommerce: unsplash(
-    "GQOylIn892U",
-    "q=80&w=1000&h=760&auto=format&fit=crop"
-  ),
-
-  // Landing-page / web-development concept
-  conceptLanding: unsplash(
-    "pKiBD4eoOqE",
-    "q=80&w=1000&h=760&auto=format&fit=crop"
-  ),
-};
-
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
