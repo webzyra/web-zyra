@@ -1,6 +1,15 @@
 import Link from "next/link";
-import BannerArt from "@/components/BannerArt";
-import { SERVICES, WHY_WEBZYRA, PROCESS_STEPS } from "@/lib/data";
+import Image from "next/image";
+import PricingCard from "@/components/PricingCard";
+import {
+  SERVICES,
+  WHY_WEBZYRA,
+  PROCESS_STEPS,
+  PLANS,
+  TRUST_STRIP,
+  WHAT_YOU_GET,
+  IMAGES,
+} from "@/lib/data";
 
 const FEATURED_SERVICES = SERVICES.slice(0, 3);
 
@@ -9,7 +18,7 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-paper">
-        <div className="max-w-content mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-20 md:pb-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+        <div className="max-w-content mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-16 md:pb-20 grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
           <div className="animate-fadeUp">
             <p className="eyebrow mb-6">Website design &amp; development</p>
             <h1 className="text-[42px] leading-[1.05] sm:text-5xl md:text-[58px] font-display font-bold tracking-tight text-balance">
@@ -18,37 +27,51 @@ export default function HomePage() {
               built for your business.
             </h1>
             <p className="mt-6 text-muted text-[17px] md:text-lg leading-relaxed max-w-lg">
-              Webzyra designs and develops responsive, custom-built websites for
-              businesses, brands, individuals, and online stores — planned around
-              how your site actually needs to work.
+              Webzyra builds professional websites for businesses and
+              individuals — custom-built, responsive, and ready to represent
+              your brand properly.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <Link href="/services" className="btn-blue">
                 View Services
               </Link>
-              <Link href="/contact" className="btn-outline">
-                Contact Webzyra
+              <Link href="/checkout" className="btn-outline">
+                Start a Project
               </Link>
-            </div>
-
-            <div className="mt-12 flex items-center gap-6 text-[13px] font-mono text-muted uppercase tracking-wide">
-              <span>Responsive</span>
-              <span className="w-1 h-1 rounded-full bg-line" />
-              <span>SEO-friendly</span>
-              <span className="w-1 h-1 rounded-full bg-line" />
-              <span>Fast</span>
             </div>
           </div>
 
           <div className="relative animate-fadeIn">
             <div className="relative rounded-lg overflow-hidden border border-line shadow-[0_20px_60px_-20px_rgba(10,12,16,0.35)] h-[420px] md:h-[480px]">
-              <BannerArt variant="home" />
+              <Image
+                src={IMAGES.hero.src}
+                alt={IMAGES.hero.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
             </div>
 
             <div className="absolute -bottom-6 -left-6 hidden sm:block bg-white border border-line rounded-md shadow-[0_12px_30px_-8px_rgba(10,12,16,0.2)] px-6 py-4">
               <p className="font-display text-2xl font-semibold text-ink">7–10<span className="text-blue">days</span></p>
               <p className="text-[12.5px] text-muted mt-0.5">typical delivery, Professional plan</p>
             </div>
+          </div>
+        </div>
+
+        {/* TRUST STRIP */}
+        <div className="border-t border-line">
+          <div className="max-w-content mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-center sm:justify-between gap-x-8 gap-y-2 text-[12px] font-mono uppercase tracking-[0.14em] text-muted">
+            {TRUST_STRIP.map((item, i) => (
+              <span key={item} className="flex items-center gap-8">
+                <span>{item}</span>
+                {i < TRUST_STRIP.length - 1 && (
+                  <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-line" />
+                )}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -78,10 +101,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PRICING PREVIEW */}
+      <section className="section bg-surface" id="pricing-preview">
+        <div className="section-inner">
+          <p className="eyebrow mb-4">Pricing</p>
+          <h2 className="text-3xl md:text-4xl font-display font-semibold max-w-lg mb-3 text-balance">
+            Straightforward plans, clearly scoped.
+          </h2>
+          <p className="text-muted max-w-xl mb-12">
+            Prices are Webzyra's service charge for design and development.
+            Domain, hosting, and any other third-party costs are separate.
+          </p>
+          <div className="grid lg:grid-cols-3 gap-6 items-stretch">
+            {PLANS.map((plan) => (
+              <PricingCard key={plan.id} plan={plan} />
+            ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Link href="/services" className="btn-outline">
+              View Full Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* BANNER */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <BannerArt variant="work" />
+          <Image
+            src={IMAGES.workBanner.src}
+            alt={IMAGES.workBanner.alt}
+            fill
+            loading="lazy"
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 banner-scrim-blue" />
         </div>
         <div className="relative max-w-content mx-auto px-6 md:px-10 py-24 md:py-32 text-white text-center flex flex-col items-center">
           <p className="eyebrow-light mb-5">webzyra.xyz</p>
@@ -100,7 +155,7 @@ export default function HomePage() {
       {/* WHY WEBZYRA */}
       <section className="section">
         <div className="section-inner">
-          <p className="eyebrow mb-4">Why Webzyra</p>
+          <p className="eyebrow mb-4">Why choose Webzyra</p>
           <h2 className="text-3xl md:text-4xl font-display font-semibold max-w-lg mb-12 text-balance">
             Built with intent, not templates.
           </h2>
@@ -115,8 +170,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* WHAT YOU GET */}
       <section className="section bg-surface">
+        <div className="section-inner">
+          <p className="eyebrow mb-4">What's included</p>
+          <h2 className="text-3xl md:text-4xl font-display font-semibold max-w-lg mb-12 text-balance">
+            What you get with your Webzyra website.
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
+            {WHAT_YOU_GET.map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-blue shrink-0"
+                  aria-hidden
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                <span className="text-[15px] text-ink/85">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="section">
         <div className="section-inner">
           <p className="eyebrow mb-4">How it works</p>
           <h2 className="text-3xl md:text-4xl font-display font-semibold max-w-lg mb-12 text-balance">
@@ -138,14 +224,15 @@ export default function HomePage() {
       <section className="section bg-gradient-to-b from-ink to-ink2 text-white">
         <div className="section-inner text-center flex flex-col items-center">
           <h2 className="text-3xl md:text-[44px] font-display font-semibold max-w-2xl text-balance">
-            Let's build your website.
+            Ready to build your website?
           </h2>
           <p className="mt-4 text-white/60 max-w-md">
-            Pick a plan or get in touch directly to talk through what you need.
+            Tell us what you need and let's build a professional web presence
+            around it.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <Link href="/services" className="btn-blue">
-              View Services
+            <Link href="/checkout" className="btn-blue">
+              Start a Project
             </Link>
             <Link href="/contact" className="btn-outline-light">
               Contact Webzyra
