@@ -15,6 +15,14 @@ Live domain: **webzyra.xyz**
   no fake payment processing
 - Contact form that prepares a message and opens it in WhatsApp or the
   user's email client (no backend/database required)
+- Custom-designed brand illustrations (`BannerArt`, `ConceptArt`) —
+  hand-built SVG website/browser mockups in the brand's own colors,
+  used for every page banner and concept card instead of stock photos
+- A branded loading screen on first load: your logo wipe-reveals in
+  with a progress bar, then fades — skipped automatically for visitors
+  with reduced-motion preferences enabled
+- A dedicated favicon cropped from your logo's "W" mark, separate from
+  the full wordmark used in the header/footer
 - Sticky responsive header with a mobile hamburger menu
 - Clean, unique URLs (`/services`, `/contact`, `/info`, etc. — no
   `?page=` or `.html` routes)
@@ -23,7 +31,8 @@ Live domain: **webzyra.xyz**
 - Accessible forms with validation and error states, visible focus
   states, and `prefers-reduced-motion` support
 - Component-based architecture (Header, Footer, PricingCard, FAQ,
-  ContactForm, Checkout, WhatsAppButton, EmailButton, Logo)
+  ContactForm, Checkout, WhatsAppButton, EmailButton, Logo, BannerArt,
+  ConceptArt, LoadingScreen, PageBanner)
 
 ## Tech Stack
 
@@ -31,8 +40,8 @@ Live domain: **webzyra.xyz**
 - [React 18](https://react.dev/) + TypeScript
 - [Tailwind CSS](https://tailwindcss.com/) with a custom design-token
   theme (colors, type scale, radii) in `tailwind.config.ts`
-- Fonts loaded via `next/font/google`: Space Grotesk (display), IBM
-  Plex Sans (body), IBM Plex Mono (labels/eyebrows)
+- Fonts loaded via `next/font/google`: Sora (display), Inter (body),
+  IBM Plex Mono (labels/eyebrows)
 
 No database, CMS, or payment gateway is included — this is a static,
 front-end-only marketing/checkout-request site, matching what's
@@ -139,13 +148,22 @@ components/
   PricingCard.tsx, FAQ.tsx
   ContactForm.tsx, Checkout.tsx
   WhatsAppButton.tsx, EmailButton.tsx
+  PageBanner.tsx           Photographic-style page-top banner wrapper
+  BannerArt.tsx              Custom SVG illustration used inside banners
+                              (variants: home, services, info, contact, work)
+  ConceptArt.tsx               Custom SVG thumbnails for the four Work concepts
+  LoadingScreen.tsx             Branded first-load animation
 lib/
   data.ts                Central content: nav links, pricing plans,
                           services, FAQ, contact info — edit here first
 public/
-  logo.png                Your provided Webzyra logo (used as-is
-                          throughout the site; also used as the favicon
-                          and social preview image)
+  logo.png                Your full Webzyra wordmark (used as-is in the
+                          header, footer, and social preview image)
+  favicon.png              A standalone copy of the cropped "W" mark
+app/
+  icon.png                The "W" mark Next.js serves as the favicon
+                          (auto-detected by file name — no manifest edit needed)
+  apple-icon.png            Same mark, sized for iOS home-screen icons
 ```
 
 ## Customization
@@ -164,15 +182,21 @@ Other customization:
 
 - **Logo** — replace `public/logo.png` with a new file of the same
   name (or update the `src` in `components/Logo.tsx`) to swap the
-  logo everywhere it's used: header, footer, favicon, and social
-  preview.
+  logo everywhere it's used: header, footer, and social preview. To
+  change the favicon, replace `app/icon.png` / `app/apple-icon.png`
+  with a new cropped mark.
+- **Banner illustrations** — edit `components/BannerArt.tsx` (page
+  banners) and `components/ConceptArt.tsx` (Work page thumbnails) to
+  adjust the custom SVG mockups, or swap in real photography by
+  replacing the `<BannerArt variant="..." />` usage in a page with an
+  `<img>`.
 - **Colors** — edit the `colors` block in `tailwind.config.ts`
-  (`ink`, `blue`, `paper`, `muted`, `line`, `surface`).
-- **Fonts** — edit the `next/font/google` imports in `app/layout.tsx`.
+  (`ink`, `ink2`, `blue`, `paper`, `muted`, `line`, `surface`) — the
+  banner illustrations and loading screen also read from these.
+- **Fonts** — edit the `next/font/google` imports in `app/layout.tsx`
+  (currently Sora for headings, Inter for body text).
 - **Website content/copy** — each page's text lives directly in its
   `app/**/page.tsx` file.
-- **Images** — add new images to `public/images/` and reference them
-  with `next/image`.
 
 ## Important notes
 
@@ -185,3 +209,9 @@ Other customization:
 - Prices shown are Webzyra's service charge only; domain, hosting, and
   other third-party costs are called out as separate throughout the
   site.
+- The loading screen (`components/LoadingScreen.tsx`) plays once per
+  full page load — not on every internal navigation — and is skipped
+  automatically for visitors with `prefers-reduced-motion` enabled.
+- All banner and concept imagery is hand-built SVG (`BannerArt.tsx`,
+  `ConceptArt.tsx`) rather than stock photography, so there's nothing
+  to license or attribute.
