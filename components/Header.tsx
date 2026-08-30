@@ -53,8 +53,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="/services" className="btn-primary">
-            Get Your Website
+          <Link href="/checkout" className="btn-primary">
+            Start a Project
           </Link>
         </div>
 
@@ -99,8 +99,8 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/services" className="btn-primary mt-8 w-full">
-            Get Your Website
+          <Link href="/checkout" className="btn-primary mt-8 w-full">
+            Start a Project
           </Link>
         </nav>
       </div>
