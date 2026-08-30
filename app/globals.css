@@ -64,13 +64,13 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-[15px] font-medium transition-all duration-200 whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-[15px] font-medium transition-all duration-200 whitespace-nowrap hover:-translate-y-px;
   }
   .btn-primary {
     @apply btn bg-ink text-white hover:bg-blue;
   }
   .btn-blue {
-    @apply btn bg-blue text-white hover:bg-blue-dark shadow-[0_1px_2px_rgba(36,81,255,0.25)];
+    @apply btn bg-blue text-white hover:bg-blue-dark shadow-[0_1px_2px_rgba(36,81,255,0.25)] hover:shadow-[0_6px_16px_-4px_rgba(36,81,255,0.4)];
   }
   .btn-outline {
     @apply btn border border-ink/20 text-ink hover:border-ink;
@@ -83,7 +83,10 @@
   }
 
   .card {
-    @apply border border-line rounded-md bg-white/70;
+    @apply border border-line rounded-md bg-white/70 transition-all duration-300;
+  }
+  .card:hover {
+    @apply border-ink/25 shadow-[0_16px_36px_-18px_rgba(10,12,16,0.25)];
   }
 
   .field-label {
