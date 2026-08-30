@@ -1,33 +1,27 @@
 import type { ReactNode } from "react";
+import BannerArt from "./BannerArt";
+
+type Variant = "home" | "services" | "info" | "contact" | "work";
 
 export default function PageBanner({
   eyebrow,
   title,
   subtitle,
-  image,
-  imageAlt,
+  variant,
   cta,
   compact = false,
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  image: string;
-  imageAlt: string;
+  variant: Variant;
   cta?: ReactNode;
   compact?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={image}
-          alt={imageAlt}
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 banner-scrim-blue" />
+        <BannerArt variant={variant} />
       </div>
       <div
         className={`relative max-w-content mx-auto px-6 md:px-10 text-white ${
