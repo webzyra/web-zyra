@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import PricingCard from "@/components/PricingCard";
 import FAQ from "@/components/FAQ";
-import { SERVICES, PLANS } from "@/lib/data";
+import { SERVICES, PLANS, IMAGES } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Services & Pricing",
@@ -19,7 +19,7 @@ export default function ServicesPage() {
         eyebrow="Services & pricing"
         title="What Webzyra builds — and what it costs."
         subtitle="Every website is custom-built, responsive, and structured with SEO in mind. Choose a plan below, or get in touch if your project needs something more specific."
-        variant="services"
+        image={IMAGES.servicesBanner}
       />
 
       <section className="section">
