@@ -4,7 +4,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import EmailButton from "@/components/EmailButton";
 import FAQ from "@/components/FAQ";
 import PageBanner from "@/components/PageBanner";
-import { CONTACT } from "@/lib/data";
+import { CONTACT, IMAGES } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -20,7 +20,7 @@ export default function ContactPage() {
         eyebrow="Get in touch"
         title="Let's talk about your website."
         subtitle="Send a message below, or reach out directly over WhatsApp or email — whichever is easier for you."
-        variant="contact"
+        image={IMAGES.contactBanner}
         compact
       />
 

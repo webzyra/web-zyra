@@ -11,6 +11,51 @@ export const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Real, curated Unsplash photography (free-to-use, non-Plus), chosen per
+// section so the image actually matches what that part of the site is
+// about. Swap any URL here to change the photo everywhere it's used.
+const unsplash = (id: string, params = "q=80&w=1800&auto=format&fit=crop") =>
+  `https://images.unsplash.com/${id}?${params}`;
+
+export const IMAGES = {
+  hero: {
+    src: unsplash("photo-1547658719-da2b51169166"),
+    alt: "A monitor displaying a finished digital product interface",
+  },
+  workBanner: {
+    src: unsplash("photo-1487338875411-8880f74114a2"),
+    alt: "Two monitors set up side by side showing website layouts",
+  },
+  servicesBanner: {
+    src: unsplash("photo-1558655146-d09347e92766"),
+    alt: "A computer monitor displaying a website design system interface",
+  },
+  infoBanner: {
+    src: unsplash("photo-1587440871875-191322ee64b0"),
+    alt: "Sketching a website layout and wireframe on paper",
+  },
+  contactBanner: {
+    src: unsplash("photo-1499951360447-b19be8fe80f5"),
+    alt: "A clean professional desk set up for a design conversation",
+  },
+  conceptBusiness: {
+    src: unsplash("photo-1467232004584-a241de8bcf5d", "q=80&w=1000&h=760&auto=format&fit=crop"),
+    alt: "A monitor displaying a business website homepage",
+  },
+  conceptPortfolio: {
+    src: unsplash("photo-1507238691740-187a5b1d37b8", "q=80&w=1000&h=760&auto=format&fit=crop"),
+    alt: "A laptop displaying a portfolio-style website layout",
+  },
+  conceptEcommerce: {
+    src: unsplash("photo-1539278383962-a7774385fa02", "q=80&w=1000&h=760&auto=format&fit=crop"),
+    alt: "A laptop displaying an ecommerce product page",
+  },
+  conceptLanding: {
+    src: unsplash("photo-1487014679447-9f8336841d58", "q=80&w=1000&h=760&auto=format&fit=crop"),
+    alt: "A laptop displaying a single-page landing page layout",
+  },
+};
+
 export type PlanId = "basic" | "pro" | "ecommerce";
 
 export const PLANS: {
@@ -147,15 +192,39 @@ export const FAQS = [
   },
 ];
 
+// "Why choose Webzyra" — honest, no invented stats or claims.
 export const WHY_WEBZYRA = [
-  { title: "Professional design", desc: "Every layout is planned with intent — nothing dropped in from a generic template." },
+  { title: "Custom-built websites", desc: "Every site is built for the project — not assembled from a fixed template." },
   { title: "Responsive by default", desc: "Built and tested across phone, tablet, and desktop from day one." },
-  { title: "Custom layouts", desc: "Structure fitted to your content, not the other way around." },
-  { title: "Clean development", desc: "Readable, maintainable code — component-based and organized." },
+  { title: "Performance-conscious development", desc: "Optimized images, lean code, and fast load times." },
+  { title: "SEO-friendly structure", desc: "Semantic HTML and proper structure from the first commit." },
+  { title: "Professional UI", desc: "Interfaces planned around what a visitor is trying to do." },
+  { title: "Clear communication", desc: "Direct contact throughout the project — no ticket queues." },
+  { title: "Direct WhatsApp & email contact", desc: "Reach Webzyra directly, at any stage of your project." },
   { title: "Mobile-first experience", desc: "Designed for how most visitors will actually arrive: on a phone." },
-  { title: "Performance-conscious", desc: "Optimized images, lean code, and fast load times." },
-  { title: "SEO-friendly foundations", desc: "Semantic HTML and proper structure from the first commit." },
-  { title: "Clear communication", desc: "Direct contact by WhatsApp or email — no ticket queues." },
+];
+
+// Minimal trust strip shown near the hero.
+export const TRUST_STRIP = [
+  "Custom Built",
+  "Responsive",
+  "SEO Ready",
+  "Performance Focused",
+  "Direct Support",
+];
+
+// "What you get with your Webzyra website"
+export const WHAT_YOU_GET = [
+  "Responsive design",
+  "Professional UI",
+  "Mobile optimization",
+  "Clean structure",
+  "SEO-friendly foundation",
+  "Contact sections",
+  "Social links where required",
+  "Performance-conscious implementation",
+  "Basic animations",
+  "Clear navigation",
 ];
 
 export const PROCESS_STEPS = [
@@ -167,8 +236,8 @@ export const PROCESS_STEPS = [
 ];
 
 export const CONCEPTS = [
-  { title: "Business Website", tag: "Concept", desc: "A multi-section company site — services, credibility, and a clear path to contact.", variant: "business" as const },
-  { title: "Portfolio", tag: "Concept", desc: "A focused, image-led layout that puts the work in front first.", variant: "portfolio" as const },
-  { title: "Ecommerce", tag: "Concept", desc: "A product-first store layout — browse, product detail, cart, checkout.", variant: "ecommerce" as const },
-  { title: "Landing Page", tag: "Concept", desc: "A single-purpose page built around one action.", variant: "landing" as const },
+  { title: "Business Website", tag: "Concept", desc: "A multi-section company site — services, credibility, and a clear path to contact.", image: IMAGES.conceptBusiness },
+  { title: "Portfolio", tag: "Concept", desc: "A focused, image-led layout that puts the work in front first.", image: IMAGES.conceptPortfolio },
+  { title: "Ecommerce", tag: "Concept", desc: "A product-first store layout — browse, product detail, cart, checkout.", image: IMAGES.conceptEcommerce },
+  { title: "Landing Page", tag: "Concept", desc: "A single-purpose page built around one action.", image: IMAGES.conceptLanding },
 ];

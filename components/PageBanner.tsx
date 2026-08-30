@@ -1,27 +1,33 @@
 import type { ReactNode } from "react";
-import BannerArt from "./BannerArt";
-
-type Variant = "home" | "services" | "info" | "contact" | "work";
+import Image from "next/image";
 
 export default function PageBanner({
   eyebrow,
   title,
   subtitle,
-  variant,
+  image,
   cta,
   compact = false,
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  variant: Variant;
+  image: { src: string; alt: string };
   cta?: ReactNode;
   compact?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        <BannerArt variant={variant} />
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 banner-scrim-blue" />
       </div>
       <div
         className={`relative max-w-content mx-auto px-6 md:px-10 text-white ${
