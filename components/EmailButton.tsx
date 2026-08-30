@@ -11,10 +11,13 @@ export default function EmailButton({
   className?: string;
   label?: string;
 }) {
-  const params = new URLSearchParams();
-  if (subject) params.set("subject", subject);
-  if (body) params.set("body", body);
-  const query = params.toString();
+  // Built with encodeURIComponent (per RFC 6068) rather than URLSearchParams —
+  // URLSearchParams encodes spaces as "+", which many mail clients render
+  // literally in mailto: links instead of treating as a space.
+  const parts: string[] = [];
+  if (subject) parts.push(`subject=${encodeURIComponent(subject)}`);
+  if (body) parts.push(`body=${encodeURIComponent(body)}`);
+  const query = parts.join("&");
   const href = `mailto:${CONTACT.email}${query ? `?${query}` : ""}`;
 
   return (
@@ -27,3 +30,4 @@ export default function EmailButton({
     </a>
   );
 }
+

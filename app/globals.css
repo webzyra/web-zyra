@@ -11,9 +11,19 @@
   }
   body {
     @apply bg-paper text-ink font-body antialiased;
+    font-feature-settings: "cv11", "ss01";
   }
   h1, h2, h3, h4 {
     @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+  h1 {
+    @apply font-bold;
+    letter-spacing: -0.02em;
+  }
+  h2, h3 {
+    @apply font-semibold;
+    letter-spacing: -0.01em;
   }
   ::selection {
     @apply bg-blue text-white;
@@ -114,18 +124,28 @@
   }
 }
 
-/* Loading screen ring */
-@keyframes loaderRing {
-  from { stroke-dashoffset: 264; }
-  to { stroke-dashoffset: 46; }
+/* Loading screen — logo wipe reveal + progress bar */
+.loader-logo-mask {
+  overflow: hidden;
+  position: relative;
+  clip-path: inset(0 100% 0 0);
+  animation: loaderReveal 1.05s cubic-bezier(0.65, 0, 0.35, 1) 0.15s forwards;
 }
-.loader-ring {
-  animation: loaderRing 1.15s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+@keyframes loaderReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-6px);
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+    transform: translateX(0);
+  }
 }
-@keyframes loaderPulse {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
+.loader-bar {
+  width: 0%;
+  animation: loaderFill 1.3s cubic-bezier(0.65, 0, 0.35, 1) 0.25s forwards;
 }
-.loader-pulse {
-  animation: loaderPulse 1.4s ease-in-out infinite;
+@keyframes loaderFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }

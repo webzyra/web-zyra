@@ -21,7 +21,7 @@ export default function CheckoutPage({
   return (
     <section className="section-inner !pt-16 md:!pt-20">
       <p className="eyebrow mb-4">Order request</p>
-      <h1 className="text-4xl md:text-5xl font-display font-semibold max-w-xl mb-4">
+      <h1 className="text-4xl md:text-5xl font-display font-bold max-w-xl mb-4">
         Start your website request.
       </h1>
       <p className="text-muted text-lg max-w-xl mb-14 leading-relaxed">
