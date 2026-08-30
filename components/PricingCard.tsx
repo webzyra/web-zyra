@@ -6,9 +6,9 @@ type Plan = (typeof PLANS)[number];
 export default function PricingCard({ plan }: { plan: Plan }) {
   return (
     <div
-      className={`relative flex flex-col h-full rounded-md border p-8 transition-shadow duration-300 ${
+      className={`relative flex flex-col h-full rounded-md border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(10,12,16,0.25)] ${
         plan.popular
-          ? "border-blue shadow-[0_0_0_1px_#1E42FF] bg-white"
+          ? "border-blue shadow-[0_0_0_1px_#2451FF] bg-white"
           : "border-line bg-white hover:border-ink/30"
       }`}
     >
