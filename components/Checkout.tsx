@@ -42,25 +42,27 @@ export default function Checkout({ initialPlan }: { initialPlan?: PlanId }) {
 
   return (
     <div className="max-w-2xl">
-      {/* Stepper */}
-      <ol className="flex items-center gap-3 mb-12 font-mono text-[12px] uppercase tracking-wide">
+      {/* Stepper — numbers + connecting lines always show; labels only from sm+
+          so three full-length labels never force horizontal overflow on
+          narrow phones (320–375px). */}
+      <ol className="flex items-center gap-2 sm:gap-3 mb-10 sm:mb-12 font-mono text-[12px] uppercase tracking-wide overflow-x-auto">
         {STEPS.map((label, i) => (
-          <li key={label} className="flex items-center gap-3">
+          <li key={label} className="flex items-center gap-2 sm:gap-3 shrink-0">
             <span
               className={`flex items-center gap-2 ${
                 i <= step ? "text-blue" : "text-muted/60"
               }`}
             >
               <span
-                className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] border ${
+                className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] border shrink-0 ${
                   i <= step ? "border-blue bg-blue text-white" : "border-line"
                 }`}
               >
                 {i + 1}
               </span>
-              {label}
+              <span className="hidden sm:inline">{label}</span>
             </span>
-            {i < STEPS.length - 1 && <span className="w-6 h-px bg-line" />}
+            {i < STEPS.length - 1 && <span className="w-4 sm:w-6 h-px bg-line shrink-0" />}
           </li>
         ))}
       </ol>
