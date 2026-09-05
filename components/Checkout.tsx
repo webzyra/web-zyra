@@ -49,20 +49,28 @@ export default function Checkout({ initialPlan }: { initialPlan?: PlanId }) {
         {STEPS.map((label, i) => (
           <li key={label} className="flex items-center gap-2 sm:gap-3 shrink-0">
             <span
-              className={`flex items-center gap-2 ${
+              className={`flex items-center gap-2 transition-colors duration-300 ${
                 i <= step ? "text-blue" : "text-muted/60"
               }`}
             >
               <span
-                className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] border shrink-0 ${
-                  i <= step ? "border-blue bg-blue text-white" : "border-line"
+                className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] border shrink-0 transition-all duration-300 ${
+                  i <= step
+                    ? "border-transparent bg-gradient-to-br from-blue to-violet text-white shadow-glow-blue"
+                    : "border-line"
                 }`}
               >
                 {i + 1}
               </span>
               <span className="hidden sm:inline">{label}</span>
             </span>
-            {i < STEPS.length - 1 && <span className="w-4 sm:w-6 h-px bg-line shrink-0" />}
+            {i < STEPS.length - 1 && (
+              <span
+                className={`w-4 sm:w-6 h-px shrink-0 transition-colors duration-500 ${
+                  i < step ? "bg-blue" : "bg-line"
+                }`}
+              />
+            )}
           </li>
         ))}
       </ol>
@@ -83,7 +91,7 @@ export default function Checkout({ initialPlan }: { initialPlan?: PlanId }) {
                   <p className="font-display text-lg font-semibold">{p.name}</p>
                   <p className="text-muted text-[14px] mt-1">{p.delivery}</p>
                 </div>
-                <span className="font-display text-lg text-blue whitespace-nowrap">
+                <span className="font-display text-lg text-gradient whitespace-nowrap">
                   {p.price}
                 </span>
               </button>
@@ -100,27 +108,29 @@ export default function Checkout({ initialPlan }: { initialPlan?: PlanId }) {
           >
             ← Change plan
           </button>
-          <div className="card p-6 mb-8">
-            <p className="font-mono text-[12px] uppercase tracking-wide text-muted">
-              Selected plan
-            </p>
-            <div className="flex items-baseline justify-between mt-2">
-              <p className="font-display text-xl font-semibold">{plan.name}</p>
-              <p className="font-display text-xl text-blue">{plan.price}</p>
+          <div className="card-premium mb-8">
+            <div className="card-premium-inner p-6">
+              <p className="font-mono text-[12px] uppercase tracking-wide text-muted">
+                Selected plan
+              </p>
+              <div className="flex items-baseline justify-between mt-2">
+                <p className="font-display text-xl font-semibold">{plan.name}</p>
+                <p className="font-display text-xl text-gradient">{plan.price}</p>
+              </div>
+              <p className="text-muted text-[14px] mt-1">{plan.delivery} · website charges only</p>
+              <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                {plan.features.slice(0, 6).map((f) => (
+                  <li key={f} className="text-[13.5px] text-ink/75 flex items-start gap-2">
+                    <span className="mt-[6px] w-1 h-1 rounded-full bg-blue shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-[12.5px] text-muted border-t border-line pt-4">
+                Domain, hosting, and any other third-party services are separate from
+                this price and are discussed directly with Webzyra.
+              </p>
             </div>
-            <p className="text-muted text-[14px] mt-1">{plan.delivery} · website charges only</p>
-            <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2">
-              {plan.features.slice(0, 6).map((f) => (
-                <li key={f} className="text-[13.5px] text-ink/75 flex items-start gap-2">
-                  <span className="mt-[6px] w-1 h-1 rounded-full bg-blue shrink-0" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-[12.5px] text-muted border-t border-line pt-4">
-              Domain, hosting, and any other third-party services are separate from
-              this price and are discussed directly with Webzyra.
-            </p>
           </div>
 
           <form onSubmit={handleContinue} className="space-y-6">
@@ -172,27 +182,29 @@ export default function Checkout({ initialPlan }: { initialPlan?: PlanId }) {
 
       {step === 2 && plan && (
         <div className="animate-fadeUp">
-          <div className="card p-8 md:p-10 border-blue">
-            <p className="eyebrow mb-3">Service request — not a payment</p>
-            <h2 className="text-2xl md:text-3xl font-display font-semibold">
-              Your request is ready. Choose how you'd like to contact Webzyra.
-            </h2>
-            <p className="mt-3 text-muted text-[15px] leading-relaxed">
-              This submits a service request, not an online payment. Pricing,
-              timeline, and next steps are confirmed once you connect directly.
-            </p>
+          <div className="card-premium">
+            <div className="card-premium-inner p-8 md:p-10">
+              <p className="eyebrow mb-3">Service request — not a payment</p>
+              <h2 className="text-2xl md:text-3xl font-display font-semibold">
+                Your request is ready. Choose how you'd like to contact Webzyra.
+              </h2>
+              <p className="mt-3 text-muted text-[15px] leading-relaxed">
+                This submits a service request, not an online payment. Pricing,
+                timeline, and next steps are confirmed once you connect directly.
+              </p>
 
-            <div className="mt-6 bg-surface rounded-sm p-5 font-mono text-[13px] leading-relaxed whitespace-pre-wrap text-ink/80">
-              {orderSummary}
-            </div>
+              <div className="mt-6 bg-surface rounded-sm p-5 font-mono text-[13px] leading-relaxed whitespace-pre-wrap text-ink/80">
+                {orderSummary}
+              </div>
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-3">
-              <WhatsAppButton message={orderSummary} className="btn-blue flex-1" />
-              <EmailButton
-                subject={`Service Request — ${plan.name}`}
-                body={orderSummary}
-                className="btn-outline flex-1"
-              />
+              <div className="mt-7 flex flex-col sm:flex-row gap-3">
+                <WhatsAppButton message={orderSummary} className="btn-blue flex-1" />
+                <EmailButton
+                  subject={`Service Request — ${plan.name}`}
+                  body={orderSummary}
+                  className="btn-outline flex-1"
+                />
+              </div>
             </div>
           </div>
           <Link href="/services" className="inline-block mt-6 font-mono text-[13px] text-muted hover:text-blue">
