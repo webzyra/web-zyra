@@ -4,6 +4,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import EmailButton from "@/components/EmailButton";
 import FAQ from "@/components/FAQ";
 import PageBanner from "@/components/PageBanner";
+import Reveal from "@/components/Reveal";
 import { CONTACT, IMAGES } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -26,14 +27,18 @@ export default function ContactPage() {
 
       <section className="section">
         <div className="section-inner grid lg:grid-cols-[1fr_0.75fr] gap-14">
-          <ContactForm />
+          <Reveal>
+            <ContactForm />
+          </Reveal>
 
-          <div className="space-y-8">
-            <div className="card p-7">
-              <p className="eyebrow mb-3">Direct contact</p>
-              <div className="space-y-3">
-                <WhatsAppButton label={`WhatsApp — ${CONTACT.whatsappDisplay}`} className="btn-blue w-full" />
-                <EmailButton label={CONTACT.email} className="btn-outline w-full" />
+          <Reveal delay={120} className="space-y-8">
+            <div className="card-premium">
+              <div className="card-premium-inner p-7">
+                <p className="eyebrow mb-3">Direct contact</p>
+                <div className="space-y-3">
+                  <WhatsAppButton label={`WhatsApp — ${CONTACT.whatsappDisplay}`} className="btn-blue w-full" />
+                  <EmailButton label={CONTACT.email} className="btn-outline w-full" />
+                </div>
               </div>
             </div>
 
@@ -45,17 +50,21 @@ export default function ContactPage() {
                 <li>· Mention your timeline if you have one in mind.</li>
               </ul>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section">
         <div className="section-inner">
-          <p className="eyebrow mb-4">FAQ</p>
-          <h2 className="text-3xl md:text-4xl font-display font-semibold max-w-xl mb-12">
-            Before you reach out.
-          </h2>
-          <FAQ />
+          <Reveal>
+            <p className="eyebrow mb-4">FAQ</p>
+            <h2 className="text-3xl md:text-4xl font-display font-semibold max-w-xl mb-12">
+              Before you reach out.
+            </h2>
+          </Reveal>
+          <Reveal>
+            <FAQ />
+          </Reveal>
         </div>
       </section>
     </>
