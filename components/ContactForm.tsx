@@ -45,36 +45,38 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="card p-8 md:p-10 animate-fadeUp">
-        <p className="eyebrow mb-3">Request ready</p>
-        <h3 className="text-2xl font-display font-semibold">
-          Thanks, {name.split(" ")[0]}. Choose how you'd like to reach Webzyra.
-        </h3>
-        <p className="mt-3 text-muted text-[15px] leading-relaxed">
-          Your message is prepared below — pick WhatsApp or email to send it. Nothing
-          is sent automatically; each button opens your own app so you're in control.
-        </p>
-        <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <WhatsAppButton message={summary} className="btn-blue flex-1" />
-          <EmailButton
-            subject={`Website enquiry — ${service}`}
-            body={summary}
-            className="btn-outline flex-1"
-          />
+      <div className="card-premium animate-fadeUp">
+        <div className="card-premium-inner p-8 md:p-10">
+          <p className="eyebrow mb-3">Request ready</p>
+          <h3 className="text-2xl font-display font-semibold">
+            Thanks, {name.split(" ")[0]}. Choose how you'd like to reach Webzyra.
+          </h3>
+          <p className="mt-3 text-muted text-[15px] leading-relaxed">
+            Your message is prepared below — pick WhatsApp or email to send it. Nothing
+            is sent automatically; each button opens your own app so you're in control.
+          </p>
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <WhatsAppButton message={summary} className="btn-blue flex-1" />
+            <EmailButton
+              subject={`Website enquiry — ${service}`}
+              body={summary}
+              className="btn-outline flex-1"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => setSubmitted(false)}
+            className="mt-6 text-[14px] font-mono text-muted hover:text-blue transition-colors"
+          >
+            ← Edit message
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => setSubmitted(false)}
-          className="mt-6 text-[14px] font-mono text-muted hover:text-blue transition-colors"
-        >
-          ← Edit message
-        </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="card p-8 md:p-10">
+    <form onSubmit={handleSubmit} noValidate className="card p-8 md:p-10 shadow-premium">
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="field-label">
