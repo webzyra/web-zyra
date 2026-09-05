@@ -241,3 +241,47 @@ export const CONCEPTS = [
   { title: "Ecommerce", tag: "Concept", desc: "A product-first store layout — browse, product detail, cart, checkout.", image: IMAGES.conceptEcommerce },
   { title: "Landing Page", tag: "Concept", desc: "A single-purpose page built around one action.", image: IMAGES.conceptLanding },
 ];
+
+// Honest, verifiable numbers only — no invented client counts or ratings.
+// Every figure here traces back to something already stated on the Services
+// page (plan scope + delivery windows).
+export const STATS: { value: number; suffix?: string; label: string }[] = [
+  { value: 100, suffix: "%", label: "Responsive — phone, tablet & desktop" },
+  { value: 3, suffix: "", label: "Focused plans: Basic, Professional, Ecommerce" },
+  { value: 7, suffix: "", label: "Pages included with the Professional plan" },
+  { value: 5, suffix: "-day", label: "Fastest typical delivery (Basic plan, 3–5 days)" },
+];
+
+// Technologies actually used to build sites — plain text, no third-party
+// logos or marks, just an honest note on the stack.
+export const TECH_STACK = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "Responsive CSS",
+  "SEO-friendly Markup",
+];
+
+// Feature comparison matrix for the Services page — derived directly from
+// each plan's existing feature list above. `null` means that item isn't
+// part of the plan's stated scope (shown as a dash, not a red X, since it's
+// just "not included" rather than a shortcoming).
+export const COMPARE_FEATURES: {
+  label: string;
+  basic: string | null;
+  pro: string | null;
+  ecommerce: string | null;
+}[] = [
+  { label: "Pages", basic: "1–3 pages", pro: "1–7 pages", ecommerce: "Product-based structure" },
+  { label: "Responsive design", basic: "Yes", pro: "Yes", ecommerce: "Yes" },
+  { label: "UI", basic: "Professional modern design", pro: "Fully custom UI", ecommerce: "Fully custom ecommerce UI" },
+  { label: "Animations", basic: "Basic animations", pro: "Modern animations", ecommerce: null },
+  { label: "Contact / lead forms", basic: "Contact section", pro: "Contact forms", ecommerce: "Business / contact sections" },
+  { label: "SEO-friendly structure", basic: "Yes", pro: "Yes", ecommerce: "Yes" },
+  { label: "Performance optimization", basic: "Basic", pro: "Yes", ecommerce: "Yes" },
+  { label: "Social media integration", basic: "Social links", pro: "Full integration", ecommerce: null },
+  { label: "Product catalog & cart", basic: null, pro: null, ecommerce: "Yes" },
+  { label: "Search functionality", basic: null, pro: null, ecommerce: "Yes" },
+  { label: "Typical delivery", basic: "3–5 days", pro: "7–10 days", ecommerce: "Discussed per project" },
+];
