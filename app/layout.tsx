@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
+import ScrollProgress from "@/components/ScrollProgress";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const display = Sora({
   subsets: ["latin"],
@@ -62,9 +64,11 @@ export default function RootLayout({
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <LoadingScreen />
+        <ScrollProgress />
         <Header />
         <main>{children}</main>
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );
